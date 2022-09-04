@@ -1,6 +1,6 @@
 # Propädeutikum Programmierung
 
-Das Propädeutikum Programmierung richtet sich an Studierende der HSBA. Die aktuellen Termine sind wie folgt: 
+Das Propädeutikum Programmierung richtet sich an Studierende der HSBA. Der Kurs umfasst 20 Stunden und beinhaltet keine Prüfung. Ziel der Veranstaltung ist den Studierenden die Grundlagen der Programmierung näher zu bringen. Der Kurs befasst sich hauptsächlich mit der Programmiersprache JavaScript. Die erlernten Prinzipien lassen sich aber leicht auch auf andere Programmiersprachen übertragen. Die aktuellen Termine sind wie folgt: 
 
   |  Termin  |     Zeit    | Raum |
   |----------|:-----------:|------|
