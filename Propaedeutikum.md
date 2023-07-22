@@ -289,6 +289,62 @@ Selbstvertändlich können wir in einer Funktion auch andere Funktionen aufrufen
         }
     }
 
+## Objektorientierte Programmierung
+### Objekte
+Bisher haben wir nur mit primitiven Datentypen gearbeitet. Eine wichtige weitere Klasse von Datentype sind **Objekte**. Objekte kann man sich als eine Zusammenfassung mehrer Variablen und Datentypen vorstellen. Am besten können wir dies an einem Beispiel verdeutlichen. Angenommen wir wollen eine Person im Code abbilden. Es ist klar, dass jede Person mehrere verschiedene Merkmale hat, welche wir in einer Datenstruktur bündeln wollen. So hat eine Person z.B einen Vornamen, einen Nachnamen und ein Alter. Wir können ein Objekt wie folgt definieren.
+
+    const person = {
+        firstName: "Max",
+        lastName: "Muster",
+        age: 25
+     };
+
+Die einzelnen Merkmale eines Objekts können dann über zwei Wege abgefragt werden.
+
+    console.log(person.firstName) //Gibt Max aus
+    console.log(person["lastName"]) //Gibt Muster aus
+
+Wir können auf diesen Objektmerkmalen mit speziellen Funktionen agieren, welche wir ebenfalls in dem Objekt selbst definieren. Diese Funktionen nennt man **Methoden** und haben direkten Zugang zu den Klassenvariablen/Objektmerkmalen.
+
+    const person = {
+        firstName: "Max",
+        lastName: "Muster",
+        age: 25,
+        introduce: function() {
+            return "Hallo mein Name ist: " + this.firstName + " " + this.lastName;
+        }
+     };
+
+    console.log(person.introduce()); //Hallo mein Name ist: Max Muster
+
+Auffällig sind hier zwei Dinge. Zum einen wird bei einer Methode eine Funktion wie eine Variable in eine Klassenvariable abgespeichert. Zum einen haben wir das Schlüsselwort `this`, welches eine Referenz auf das Objekt selbst ist. Genauso wie wir den Wert einer
+Klassenvariable abfragen können wir den Wert jederzeit anpassen. Wir müssen der Klassenvariablen nur einen neuen Wert zuweisen wie bei einer neuen Variable.
+
+### Arrays
+Eine wichtige Klasse von Objekten sind Arrays. Ein Array speichert wie ein Objekt mehrere Variablen in einem Datentyp der Unterschied ist, dass wir jedem Wert statt einem Identifier eine natürliche Zahl zuordnen. Es sollte erwähnt werden, dass JavaScript hier wesentlich von anderen Programmiersprachen abweicht was den Datentypen angeht. In JavaScript ist ein Array immer vom Datentyp *Object*, wohingegen in anderen Sprachen der Datentype eines Arrays bei der Initialisierung dekariert wird und sowohl ein Objekt als auch ein primitiver Datentyp sein kann. Ein Array wird anders als ein Objekt mit eckigen Klammern initialisiert. Da wird jedem Element eine Zahl zuordnen müssen wir keine Variablennamen angeben. Wir können daher auch nur die Elemente eines Arrays mit der zweiten Accesormethode für Objekte abfragen. Die Nummerierung beginnt bei 0.
+
+    let autoMarken = ["Ford", "BMW", "Porsche"];
+
+    console.log(autoMarken[0]) // Gibt Ford aus.
+
+## Referenzen
+Bisher haben wir sehr genau auf Datentypen in JavaScript hingewiesen und genau zwischen primitiven Datentypen und Objekten unterschieden. Ein Grund dafür ist, dass Objekte sogenannte Referenztypen sind. Ein Beispiel hilft hier für die Aufklärung. Angenommen wir erzeugen wie oben zweimal die gleiche Person.
+
+    
+    const person = {
+        firstName: "Max",
+        lastName: "Muster",
+        age: 25
+     };
+
+    const clon = {
+        firstName: "Max",
+        lastName: "Muster",
+        age: 25
+     };
+
+Naiv könnte man annehmen, dass weil alle Klassenvariablen von `person` und `clon` gleich sind und alle Variablen den gleichen Wert haben, dass JavaScript dann auch beide Objekte als gleichwertig erkennt, allerdings liefern beide Vergleiche `person == clon` und `person === clon` den Wert `false` zurück. Das liegt daran, dass der Computer beim Erstellen jedes Objekt dem Objekt eine eindeutige Speicheradresse, eine Referenz zuweist. Bei einem direkten **EQUALS TO** Vergleich werden dann nicht die Werte aller Variablen, sondern lediglich die Speicheradressen verglichen. Das ist ein wesentlicher Unterschied zu primitiven Datentypen. Der Computer hält in seinem internen Speicher zum Beispiel immer nur eine einzige für die Zahl 5. Wir können so viele Variablen wir wir wollen den gleichen primitiven Datenwert zuweisen, dennoch verweisen dann alle Variablen auf die gleiche Referenz im Speicher. Bei Objekten ist dies nicht so.
+
 
 
 
